@@ -53,9 +53,13 @@ Total lexer+parser time 30844ms.
  */
 grammar Java8;
 
+
+
 /*
  * Productions from §3 (Lexical Structure)
  */
+
+
 
 literal
 	:	IntegerLiteral
@@ -1345,6 +1349,7 @@ castExpression
 
 // §3.9 Keywords
 
+
 ABSTRACT : 'abstract';
 ASSERT : 'assert';
 BOOLEAN : 'boolean';
@@ -1767,13 +1772,18 @@ ELLIPSIS : '...';
 // Whitespace and comments
 //
 
-WS  :  [ \t\r\n\u000C]+ -> skip
+/*
+WS  :  [\r\n|]+
+	   |[\u000C]+
+	   |[\r]+ -> channel(HIDDEN)
     ;
+
+*/
 
 COMMENT
     :   '/*' .*? '*/' -> skip
     ;
 
 LINE_COMMENT
-    :   '//' ~[\r\n]* -> skip
+    :   '//' ~[\r\n]+ -> channel(HIDDEN)
     ;

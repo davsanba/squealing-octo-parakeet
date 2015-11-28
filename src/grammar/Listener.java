@@ -1,11 +1,23 @@
-package grammar.java8;
+package grammar;
 
+import java.util.List;
+
+import org.antlr.v4.runtime.BufferedTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+
 public class Listener extends Java8BaseListener {
+	private BufferedTokenStream tokens;
+	
+	public Listener(BufferedTokenStream tokens){
+		this.tokens = tokens;
+	}
+	
 	@Override public void enterClassMemberDeclaration(@NotNull Java8Parser.ClassMemberDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -114,12 +126,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) {
+	}
+
 	@Override public void exitClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -498,18 +507,18 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { 
+		List<TerminalNode> a = ctx.getTokens(105);
+		
+		List<Token> refChannel = tokens.getTokens(0, tokens.size()-1, 105);
+		for(Token x: refChannel){
+			System.out.println("algo "+ x +" "+x.getType());
+		}
+		System.out.println(refChannel.size());
+	}
+	@Override public void exitClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { 
+		
+	}
 	@Override public void enterUnannInterfaceType_lfno_unannClassOrInterfaceType(@NotNull Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -787,11 +796,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterMethodDeclarator(@NotNull Java8Parser.MethodDeclaratorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+		
 	@Override public void exitMethodDeclarator(@NotNull Java8Parser.MethodDeclaratorContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1050,12 +1055,10 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTypeVariable(@NotNull Java8Parser.TypeVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterTypeVariable(@NotNull Java8Parser.TypeVariableContext ctx) { 
+		
+	}
+	
 	@Override public void exitTypeVariable(@NotNull Java8Parser.TypeVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1075,11 +1078,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterMethodDeclaration(@NotNull Java8Parser.MethodDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	
 	@Override public void exitMethodDeclaration(@NotNull Java8Parser.MethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
