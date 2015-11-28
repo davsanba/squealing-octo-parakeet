@@ -1773,9 +1773,11 @@ ELLIPSIS : '...';
 //
 
 
-WS  :  [ \t\r\n\u000C]+
+WS  :  [' '\t\u000C]  -> channel(HIDDEN)
     ;
 
+LJ	: [\r\n]+ -> channel(HIDDEN)
+	;
 
 
 COMMENT

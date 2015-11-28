@@ -508,9 +508,8 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { 
-		List<TerminalNode> a = ctx.getTokens(105);
 		
-		List<Token> refChannel = tokens.getTokens(0, tokens.size()-1, 105);
+		List<Token> refChannel = tokens.getTokens();
 		for(Token x: refChannel){
 			System.out.println("algo "+ x +" "+x.getType());
 		}
