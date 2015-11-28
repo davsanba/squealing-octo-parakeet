@@ -65,6 +65,8 @@ public class App {
 		
 		}
 	}
+	public int hola;
+	public String prueba;
 	private MainWindow window;
 	private static App instance = null;
 }
