@@ -85,9 +85,10 @@ public class App {
 		}
 	}
 
-	public void setError(Token token, TipoErrores tipo) {
-		//errores.addError(token, tipo);
+	public void setError(int linea, String cadena, TipoErrores tipo) {
+		errores.add(new Errores(linea, cadena, tipo));
 	}
+	
 	private GenErrores errores;
 	private StatementsCheck statement;
 	private Ident ident;
