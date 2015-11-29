@@ -3,11 +3,16 @@ package controller;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import grammar.*;
 import grammar.Error;
+import model.Errores;
+import model.GenErrores;
+import model.Ident;
+import model.TipoErrores;
 import view.MainWindow;
 
 import java.io.BufferedWriter;
@@ -17,6 +22,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -37,7 +43,13 @@ public class App {
 	
 	public void start(){
 		//window = new MainWindow();
+		ident = new Ident();
+		errores = new GenErrores();
 		analizar("C:/Users/David/Desktop/hola.java");
+	}
+	
+	public void convert(List<Token> tokens, int identLevel){
+		ident.identCheck(tokens, identLevel);
 	}
 	
 	public void analizar(String texto){
@@ -69,6 +81,9 @@ public class App {
 	public void setError(Token token, TipoErrores tipo) {
 		//errores.addError(token, tipo);
 	}
+	private GenErrores errores;
+	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
+	
 }
