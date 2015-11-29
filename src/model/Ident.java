@@ -25,6 +25,7 @@ public class Ident {
 		}
 		if(rt != identLevel)
 			App.getInstance().setError(tokens.get(0), TipoErrores.IDENTACION);
+
 	}
 
 	private int spacesCheck(Matcher sp, Token token) {
@@ -41,5 +42,8 @@ public class Ident {
 		return rt;
 		
 	}
+
+	
+	
 }
 	

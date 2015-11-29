@@ -45,7 +45,7 @@ public class App {
 		//window = new MainWindow();
 		ident = new Ident();
 		errores = new GenErrores();
-		analizar("C:/Users/David/Desktop/hola.java");
+		analizar("C:/Users/Steven/Desktop/hola.java");
 	}
 	
 	public void convert(List<Token> tokens, int identLevel){
