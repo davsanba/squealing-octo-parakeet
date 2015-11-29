@@ -47,7 +47,7 @@ public class App {
 		//window = new MainWindow();
 		ident = new Ident();
 		statement = new StatementsCheck();
-		errores = new GenErrores();
+		generador = new GenErrores();
 		analizar("C:/Users/Steven/Desktop/hola.java");
 	}
 	
@@ -57,6 +57,18 @@ public class App {
 	
 	public void checkStatementIf(StatementContext ctx) {
 		statement.ifThenStCheck(ctx);
+	}
+	
+	public void checkStatementIfElse(StatementContext ctx) {
+		statement.ifThenElseStCheck(ctx);
+	}
+	
+	public void checkStatementWhile(StatementContext ctx) {
+		statement.whileStCheck(ctx);
+	}
+	
+	public void checkStatementFor(StatementContext ctx) {
+		statement.forStCheck(ctx);
 	}
 	
 	public void analizar(String texto){
@@ -89,10 +101,11 @@ public class App {
 		errores.add(new Errores(linea, cadena, tipo));
 	}
 	
-	private GenErrores errores;
+	private List<Errores> errores = new ArrayList<Errores>();
+	private GenErrores generador;
 	private StatementsCheck statement;
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
-	
+		
 }
