@@ -1,4 +1,4 @@
-package model;
+package util;
 
 import java.util.List;
 import java.util.regex.*;
@@ -6,6 +6,7 @@ import java.util.regex.*;
 import org.antlr.v4.runtime.Token;
 
 import controller.App;
+import model.TipoErrores;
 
 public class Ident {
 	
@@ -24,8 +25,7 @@ public class Ident {
 			}
 		}
 		if(rt != identLevel)
-			App.getInstance().setError(tokens.get(0), TipoErrores.IDENTACION);
-
+			App.getInstance().setError(tokens.get(0).getLine(), tokens.get(0).getText() , TipoErrores.IDENTACION);
 	}
 
 	private int spacesCheck(Matcher sp, Token token) {
@@ -38,7 +38,7 @@ public class Ident {
 		if(spaces % 4 == 0)
 			rt += spaces/4;
 		else
-			App.getInstance().setError(token,TipoErrores.ESPACIOS);
+			App.getInstance().setError(token.getLine(), token.getText(), TipoErrores.ESPACIOS);
 		return rt;
 		
 	}
@@ -46,4 +46,3 @@ public class Ident {
 	
 	
 }
-	

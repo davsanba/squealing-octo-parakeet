@@ -9,10 +9,14 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import grammar.*;
 import grammar.Error;
+import grammar.Java8Parser.MethodDeclaratorContext;
+import grammar.Java8Parser.NormalClassDeclarationContext;
+import grammar.Java8Parser.VariableDeclaratorIdContext;
 import model.Errores;
 import model.GenErrores;
-import model.Ident;
 import model.TipoErrores;
+import util.Ident;
+import util.NameCheck;
 import view.MainWindow;
 
 import java.io.BufferedWriter;
@@ -43,13 +47,26 @@ public class App {
 	
 	public void start(){
 		//window = new MainWindow();
+		nameChk = new NameCheck();
 		ident = new Ident();
-		errores = new GenErrores();
+		generador = new GenErrores();
 		analizar("C:/Users/David/Desktop/hola.java");
 	}
 	
-	public void convert(List<Token> tokens, int identLevel){
+	public void chkIdent(List<Token> tokens, int identLevel){
 		ident.identCheck(tokens, identLevel);
+	}
+	
+	public void checkClassName(NormalClassDeclarationContext ctx) {
+		nameChk.checkClass(ctx);
+	}
+	
+	public void checkMethodName(MethodDeclaratorContext ctx) {
+		nameChk.checkMethod(ctx);
+	}
+	
+	public void checkVarName(VariableDeclaratorIdContext ctx) {
+		nameChk.checkVar(ctx);
 	}
 	
 	public void analizar(String texto){
@@ -78,10 +95,13 @@ public class App {
 		}
 	}
 
-	public void setError(Token token, TipoErrores tipo) {
-		//errores.addError(token, tipo);
+	public void setError(int linea, String cadena, TipoErrores tipo) {
+		errores.add(new Errores(linea, cadena, tipo));
 	}
-	private GenErrores errores;
+	
+	private List<Errores> errores = new ArrayList<Errores>(); ;
+	private NameCheck nameChk;
+	private GenErrores generador;
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
