@@ -134,7 +134,6 @@ public class Listener extends Java8BaseListener {
 		if(a != null){
 					App.getInstance().convert(a, identLevel);
 			}
-			System.out.println("indentLevel: " + identLevel);
 	}
 
 	@Override public void exitClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) { }
@@ -1636,13 +1635,13 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBlock(@NotNull Java8Parser.BlockContext ctx) {
+		identLevel --;
 		int a = ctx.getStop().getTokenIndex();
 		List<Token> tk = tokens.getHiddenTokensToLeft(a);
-		for(Token t:tk){
-			System.out.println("tk= "+t);
+		if(tk != null){	
+			App.getInstance().convert(tk, identLevel);
 		}
-		identLevel --;
-		System.out.println(identLevel);
+		
 	}
 	/**
 	 * {@inheritDoc}
@@ -2673,7 +2672,6 @@ public class Listener extends Java8BaseListener {
 		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
 		if(a != null){	
 			App.getInstance().convert(a, identLevel);
-			System.out.println("indentLevel: " + identLevel);
 		}
 	}
 	@Override public void exitBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { }

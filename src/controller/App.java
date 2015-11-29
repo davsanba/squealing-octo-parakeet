@@ -49,7 +49,7 @@ public class App {
 	}
 	
 	public void convert(List<Token> tokens, int identLevel){
-		ident.tabConverter(tokens, identLevel);
+		ident.identCheck(tokens, identLevel);
 	}
 	
 	public void analizar(String texto){
