@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import grammar.*;
 import grammar.Error;
+import grammar.Java8Parser.*;
 import model.Errores;
 import model.GenErrores;
 import model.Ident;
@@ -52,6 +53,10 @@ public class App {
 	
 	public void convert(List<Token> tokens, int identLevel){
 		ident.identCheck(tokens, identLevel);
+	}
+	
+	public void checkStatementIf(StatementContext ctx) {
+		statement.ifThenStCheck(ctx);
 	}
 	
 	public void analizar(String texto){

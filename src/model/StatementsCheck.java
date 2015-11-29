@@ -7,7 +7,7 @@ import controller.App;
 import grammar.Java8Parser.*;
 
 public class StatementsCheck {
-	public void ifThenStCheck(NormalClassDeclarationContext ctx){
+	public void ifThenStCheck(StatementContext ctx){
 		String statement = ctx.getText();
 		String[] partes = statement.split("{");
 		String parte1 = partes[0];
