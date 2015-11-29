@@ -12,6 +12,7 @@ import grammar.Error;
 import model.Errores;
 import model.GenErrores;
 import model.Ident;
+import model.StatementsCheck;
 import model.TipoErrores;
 import view.MainWindow;
 
@@ -44,6 +45,7 @@ public class App {
 	public void start(){
 		//window = new MainWindow();
 		ident = new Ident();
+		statement = new StatementsCheck();
 		errores = new GenErrores();
 		analizar("C:/Users/Steven/Desktop/hola.java");
 	}
@@ -82,6 +84,7 @@ public class App {
 		//errores.addError(token, tipo);
 	}
 	private GenErrores errores;
+	private StatementsCheck statement;
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
