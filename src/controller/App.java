@@ -66,6 +66,9 @@ public class App {
 		}
 	}
 
+	public void setError(Token token, TipoErrores tipo) {
+		//errores.addError(token, tipo);
+	}
 	private MainWindow window;
 	private static App instance = null;
 }
