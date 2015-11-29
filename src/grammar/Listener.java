@@ -132,7 +132,7 @@ public class Listener extends Java8BaseListener {
 	@Override public void enterClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) {
 		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
 		if(a != null){
-					App.getInstance().convert(a, identLevel);
+					App.getInstance().chkIdent(a, identLevel);
 			}
 	}
 
@@ -287,7 +287,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterVariableDeclaratorId(@NotNull Java8Parser.VariableDeclaratorIdContext ctx) { 
-		
+		App.getInstance().checkVarName(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -798,7 +798,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMethodDeclarator(@NotNull Java8Parser.MethodDeclaratorContext ctx) { }
+	@Override public void enterMethodDeclarator(@NotNull Java8Parser.MethodDeclaratorContext ctx) {
+		App.getInstance().checkMethodName(ctx);
+	}
 		
 	@Override public void exitMethodDeclarator(@NotNull Java8Parser.MethodDeclaratorContext ctx) { }
 	/**
@@ -951,7 +953,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterNormalClassDeclaration(@NotNull Java8Parser.NormalClassDeclarationContext ctx) { 
-		
+		App.getInstance().checkClassName(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -1210,7 +1212,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) { }
+	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) {
+		App.getInstance().checkStatementIf(ctx);
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1294,9 +1298,7 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { 
-		App.getInstance().checkStatementIf(ctx);
-	}
+	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1416,7 +1418,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhileStatement(@NotNull Java8Parser.WhileStatementContext ctx) { }
+	@Override public void enterWhileStatement(@NotNull Java8Parser.WhileStatementContext ctx) {
+		App.getInstance().checkStatementWhile(ctx);
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1641,7 +1645,7 @@ public class Listener extends Java8BaseListener {
 		int a = ctx.getStop().getTokenIndex();
 		List<Token> tk = tokens.getHiddenTokensToLeft(a);
 		if(tk != null){	
-			App.getInstance().convert(tk, identLevel);
+			App.getInstance().chkIdent(tk, identLevel);
 		}
 		
 	}
@@ -2046,7 +2050,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForStatement(@NotNull Java8Parser.ForStatementContext ctx) { }
+	@Override public void enterForStatement(@NotNull Java8Parser.ForStatementContext ctx) { 
+		App.getInstance().checkStatementFor(ctx);
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2154,7 +2160,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfThenElseStatement(@NotNull Java8Parser.IfThenElseStatementContext ctx) { }
+	@Override public void enterIfThenElseStatement(@NotNull Java8Parser.IfThenElseStatementContext ctx) { 
+		App.getInstance().checkStatementIfElse(ctx);
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2673,7 +2681,7 @@ public class Listener extends Java8BaseListener {
 	@Override public void enterBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { 
 		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
 		if(a != null){	
-			App.getInstance().convert(a, identLevel);
+			App.getInstance().chkIdent(a, identLevel);
 		}
 	}
 	@Override public void exitBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { }
@@ -2864,13 +2872,6 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) {
-		
-		/*
-		System.out.println("start: "+ctx.getStart().getTokenIndex());
-		System.out.println("stop: "+ctx.getStop().getTokenIndex());
-		System.out.println(ctx.getText());
-		*/
-		
 	}
 	/**
 	 * {@inheritDoc}

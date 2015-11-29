@@ -12,9 +12,10 @@ import grammar.Error;
 import grammar.Java8Parser.*;
 import model.Errores;
 import model.GenErrores;
-import model.Ident;
-import model.StatementsCheck;
 import model.TipoErrores;
+import util.Ident;
+import util.NameCheck;
+import util.StatementsCheck;
 import view.MainWindow;
 
 import java.io.BufferedWriter;
@@ -45,29 +46,42 @@ public class App {
 	
 	public void start(){
 		//window = new MainWindow();
+		nameChk = new NameCheck();
 		ident = new Ident();
-		statement = new StatementsCheck();
 		generador = new GenErrores();
+		statement = new StatementsCheck();
 		analizar("C:/Users/Steven/Desktop/hola.java");
 	}
 	
-	public void convert(List<Token> tokens, int identLevel){
+	public void chkIdent(List<Token> tokens, int identLevel){
 		ident.identCheck(tokens, identLevel);
 	}
 	
-	public void checkStatementIf(StatementContext ctx) {
+	public void checkClassName(NormalClassDeclarationContext ctx) {
+		nameChk.checkClass(ctx);
+	}
+	
+	public void checkMethodName(MethodDeclaratorContext ctx) {
+		nameChk.checkMethod(ctx);
+	}
+	
+	public void checkVarName(VariableDeclaratorIdContext ctx) {
+		nameChk.checkVar(ctx);
+	}
+	
+	public void checkStatementIf(IfThenStatementContext ctx) {
 		statement.ifThenStCheck(ctx);
 	}
 	
-	public void checkStatementIfElse(StatementContext ctx) {
+	public void checkStatementIfElse(IfThenElseStatementContext ctx) {
 		statement.ifThenElseStCheck(ctx);
 	}
 	
-	public void checkStatementWhile(StatementContext ctx) {
+	public void checkStatementWhile(WhileStatementContext ctx) {
 		statement.whileStCheck(ctx);
 	}
 	
-	public void checkStatementFor(StatementContext ctx) {
+	public void checkStatementFor(ForStatementContext ctx) {
 		statement.forStCheck(ctx);
 	}
 	
@@ -102,10 +116,11 @@ public class App {
 	}
 	
 	private List<Errores> errores = new ArrayList<Errores>();
-	private GenErrores generador;
 	private StatementsCheck statement;
+	private NameCheck nameChk;
+	private GenErrores generador;
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
-		
+	
 }
