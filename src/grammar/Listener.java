@@ -10,12 +10,15 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import controller.App;
 
 public class Listener extends Java8BaseListener {
 	private BufferedTokenStream tokens;
+	private int identLevel;
 	
 	public Listener(BufferedTokenStream tokens){
 		this.tokens = tokens;
+		identLevel = 0;
 	}
 	
 	@Override public void enterClassMemberDeclaration(@NotNull Java8Parser.ClassMemberDeclarationContext ctx) { }
@@ -127,6 +130,11 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) {
+		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
+		if(a != null){
+					App.getInstance().convert(a, identLevel);
+			}
+			System.out.println("indentLevel: " + identLevel);
 	}
 
 	@Override public void exitClassBodyDeclaration(@NotNull Java8Parser.ClassBodyDeclarationContext ctx) { }
@@ -279,7 +287,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableDeclaratorId(@NotNull Java8Parser.VariableDeclaratorIdContext ctx) { }
+	@Override public void enterVariableDeclaratorId(@NotNull Java8Parser.VariableDeclaratorIdContext ctx) { 
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -507,16 +517,11 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { 
-		
-		List<Token> refChannel = tokens.getTokens();
-		for(Token x: refChannel){
-			System.out.println("algo "+ x +" "+x.getType());
-		}
-		System.out.println(refChannel.size());
+	@Override public void enterClassBody(@NotNull Java8Parser.ClassBodyContext ctx) {
+		identLevel ++;
 	}
 	@Override public void exitClassBody(@NotNull Java8Parser.ClassBodyContext ctx) { 
-		
+		identLevel --;
 	}
 	@Override public void enterUnannInterfaceType_lfno_unannClassOrInterfaceType(@NotNull Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx) { }
 	/**
@@ -946,7 +951,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNormalClassDeclaration(@NotNull Java8Parser.NormalClassDeclarationContext ctx) { }
+	@Override public void enterNormalClassDeclaration(@NotNull Java8Parser.NormalClassDeclarationContext ctx) { 
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1505,11 +1512,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterBlockStatements(@NotNull Java8Parser.BlockStatementsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	
 	@Override public void exitBlockStatements(@NotNull Java8Parser.BlockStatementsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1624,13 +1627,23 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlock(@NotNull Java8Parser.BlockContext ctx) { }
+	@Override public void enterBlock(@NotNull Java8Parser.BlockContext ctx) { 
+		identLevel ++;
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlock(@NotNull Java8Parser.BlockContext ctx) { }
+	@Override public void exitBlock(@NotNull Java8Parser.BlockContext ctx) {
+		int a = ctx.getStop().getTokenIndex();
+		List<Token> tk = tokens.getHiddenTokensToLeft(a);
+		for(Token t:tk){
+			System.out.println("tk= "+t);
+		}
+		identLevel --;
+		System.out.println(identLevel);
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2656,12 +2669,13 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { 
+		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
+		if(a != null){	
+			App.getInstance().convert(a, identLevel);
+			System.out.println("indentLevel: " + identLevel);
+		}
+	}
 	@Override public void exitBlockStatement(@NotNull Java8Parser.BlockStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2849,7 +2863,15 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) {
+		
+		/*
+		System.out.println("start: "+ctx.getStart().getTokenIndex());
+		System.out.println("stop: "+ctx.getStop().getTokenIndex());
+		System.out.println(ctx.getText());
+		*/
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2868,4 +2890,6 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void visitErrorNode(@NotNull ErrorNode node) { }
+	
+	
 }

@@ -1773,10 +1773,13 @@ ELLIPSIS : '...';
 //
 
 
-WS  :  [' '\t\u000C]  -> channel(HIDDEN)
+WS  :  [' '\u000C]+  -> channel(HIDDEN)
     ;
+    
+TB : '\t'+ -> channel(HIDDEN)
+	;	
 
-LJ	: [\r\n]+ -> channel(HIDDEN)
+LJ	: [\r\n]+ -> skip
 	;
 
 
