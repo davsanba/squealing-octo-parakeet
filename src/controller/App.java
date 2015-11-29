@@ -11,12 +11,12 @@ import grammar.*;
 import grammar.Error;
 import grammar.Java8Parser.MethodDeclaratorContext;
 import grammar.Java8Parser.NormalClassDeclarationContext;
+import grammar.Java8Parser.StatementWithoutTrailingSubstatementContext;
 import grammar.Java8Parser.VariableDeclaratorIdContext;
 import model.Errores;
 import model.GenErrores;
 import model.TipoErrores;
-import util.Ident;
-import util.NameCheck;
+import util.*;
 import view.MainWindow;
 
 import java.io.BufferedWriter;
@@ -47,6 +47,7 @@ public class App {
 	
 	public void start(){
 		//window = new MainWindow();
+		statement = new Statement();
 		nameChk = new NameCheck();
 		ident = new Ident();
 		generador = new GenErrores();
@@ -69,7 +70,13 @@ public class App {
 		nameChk.checkVar(ctx);
 	}
 	
+	public void checkStatementLine(StatementWithoutTrailingSubstatementContext ctx) {
+		statement.checkLines(ctx);
+		
+	}
+	
 	public void analizar(String texto){
+		
 		try {
 			Java8Lexer lexer;
 			if (texto.length() > 0)
@@ -99,11 +106,13 @@ public class App {
 		errores.add(new Errores(linea, cadena, tipo));
 	}
 	
-	private List<Errores> errores = new ArrayList<Errores>(); ;
+	private List<Errores> errores = new ArrayList<Errores>();
+	private Statement statement;
 	private NameCheck nameChk;
 	private GenErrores generador;
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
+	
 	
 }

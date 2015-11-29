@@ -5,7 +5,9 @@ public enum TipoErrores {
 	IDENTACION(2),
 	NOMBRECLASE(3),
 	NOMBREMETODO(4),
-	NOMBREVARIABLE(5);
+	NOMBREVARIABLE(5),
+	VARIOSSTATEMENTSENLINEA(6)
+	;
 	
 	TipoErrores(int tipo) {
 	this.tipo = tipo;

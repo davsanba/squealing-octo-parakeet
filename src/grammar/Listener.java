@@ -8,6 +8,7 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import controller.App;
@@ -226,12 +227,11 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { 
+		App.getInstance().checkStatementLine(ctx);
+		System.out.println(ctx.getParent().getRuleContext().getText());
+	}
+
 	@Override public void exitStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1212,7 +1212,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) { }
+	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) { 
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1296,12 +1298,10 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) {
+		
+	}
+	
 	@Override public void exitStatement(@NotNull Java8Parser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
