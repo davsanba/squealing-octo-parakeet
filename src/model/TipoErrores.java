@@ -7,7 +7,8 @@ public enum TipoErrores {
 	NOMBREMETODO(4),
 	NOMBREVARIABLE(5),
 	VARIOSSTATEMENTSENLINEA(6),
-	IFTHEN(7)
+	IFTHEN(7),
+	IFSINLLAVE(8)
 	;
 	
 	TipoErrores(int tipo) {

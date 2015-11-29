@@ -229,7 +229,6 @@ public class Listener extends Java8BaseListener {
 	 */
 	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { 
 		App.getInstance().checkStatementLine(ctx);
-		App.getInstance().checkIfElse(ctx);
 	}
 
 	@Override public void exitStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
@@ -1213,7 +1212,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) { 
-
+		App.getInstance().checkIfThen(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -2154,7 +2153,9 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfThenElseStatement(@NotNull Java8Parser.IfThenElseStatementContext ctx) { }
+	@Override public void enterIfThenElseStatement(@NotNull Java8Parser.IfThenElseStatementContext ctx) { 
+		App.getInstance().checkIfElse(ctx);
+	}
 	/**
 	 * {@inheritDoc}
 	 *

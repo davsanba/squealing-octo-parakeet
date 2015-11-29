@@ -9,6 +9,8 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import grammar.*;
 import grammar.Error;
+import grammar.Java8Parser.IfThenElseStatementContext;
+import grammar.Java8Parser.IfThenStatementContext;
 import grammar.Java8Parser.MethodDeclaratorContext;
 import grammar.Java8Parser.NormalClassDeclarationContext;
 import grammar.Java8Parser.StatementWithoutTrailingSubstatementContext;
@@ -75,8 +77,12 @@ public class App {
 		
 	}
 	
-	public void checkIfElse(StatementWithoutTrailingSubstatementContext ctx) {
-		// TODO Auto-generated method stub
+	public void checkIfThen(IfThenStatementContext ctx) {
+		statement.checkIfThen(ctx);
+	}
+	
+	public void checkIfElse(IfThenElseStatementContext ctx) {
+		statement.checkIfElse(ctx);
 		
 	}
 	
@@ -118,6 +124,7 @@ public class App {
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
+	
 	
 	
 	
