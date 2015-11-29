@@ -9,7 +9,7 @@ import controller.App;
 
 public class Ident {
 	
-	public int tabConverter(List<Token> tokens, int identLevel ){
+	public void identCheck(List<Token> tokens, int identLevel) {
 		int rt = 0;
 		Pattern space = Pattern.compile(" ");
 		Pattern tab = Pattern.compile("\t");
@@ -20,12 +20,12 @@ public class Ident {
 				rt += spacesCheck(sp, token);
 			}
 			else if(tb.find()){
-				
 				rt += token.getText().length();
 			}
 		}
-		System.out.println(rt);
-		return rt;
+		if(rt != identLevel){
+			App.getInstance().setError(tokens.get(0), TipoErrores.IDENTACION);
+		}
 	}
 
 	private int spacesCheck(Matcher sp, Token token) {
@@ -42,5 +42,7 @@ public class Ident {
 		return rt;
 		
 	}
+
+	
 	
 }
