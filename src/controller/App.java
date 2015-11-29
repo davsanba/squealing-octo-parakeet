@@ -75,6 +75,11 @@ public class App {
 		
 	}
 	
+	public void checkIfElse(StatementWithoutTrailingSubstatementContext ctx) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void analizar(String texto){
 		
 		try {
@@ -113,6 +118,7 @@ public class App {
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
+	
 	
 	
 }

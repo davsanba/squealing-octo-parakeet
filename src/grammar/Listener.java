@@ -229,7 +229,7 @@ public class Listener extends Java8BaseListener {
 	 */
 	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { 
 		App.getInstance().checkStatementLine(ctx);
-		System.out.println(ctx.getParent().getParent().getClass());
+		App.getInstance().checkIfElse(ctx);
 	}
 
 	@Override public void exitStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
