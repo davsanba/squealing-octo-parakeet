@@ -1294,7 +1294,12 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { }
+	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { 
+		List<Token> a = tokens.getHiddenTokensToLeft(ctx.getStart().getTokenIndex());
+		if(a != null){
+					App.getInstance().convert(a, identLevel);
+		}
+	}
 	/**
 	 * {@inheritDoc}
 	 *
