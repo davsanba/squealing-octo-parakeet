@@ -9,7 +9,7 @@ public class Errores {
 		this.tipo = tipo;
 	}
 	
-	private int linea;
-	private String cadena;
-	private TipoErrores tipo;
+	public int linea;
+	public String cadena;
+	public TipoErrores tipo;
 }

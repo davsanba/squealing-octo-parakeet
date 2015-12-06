@@ -6,9 +6,33 @@ import java.util.regex.*;
 import org.antlr.v4.runtime.Token;
 
 import controller.App;
+import grammar.Java8Parser.StatementContext;
 import model.TipoErrores;
 
 public class Ident {
+	
+	
+	public void checkSpaces(List<Token> tokens, StatementContext ctx) {
+		int spaces = 0;
+		if(tokens != null){
+			for(Token token:tokens){
+				if(token.getText().matches("\t")){
+					spaces += 4;
+				}
+				Pattern space = Pattern.compile(" ");
+				Matcher sp = space.matcher(token.getText());
+				while(sp.find()){
+					spaces ++;
+				}
+			}
+			if(spaces != 1){
+				App.getInstance().setError(tokens.get(0).getLine(), ctx.getText() , TipoErrores.ESPACIOLLAVE);
+			}
+		}
+		else{
+			App.getInstance().setError(ctx.getStart().getLine(), ctx.getText() , TipoErrores.ESPACIOLLAVE);
+		}
+	}
 	
 	public void identCheck(List<Token> tokens, int identLevel) {
 		int rt = 0;

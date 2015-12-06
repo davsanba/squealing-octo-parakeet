@@ -9,12 +9,15 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import grammar.*;
 import grammar.Error;
+import grammar.Java8Parser.ForStatementContext;
 import grammar.Java8Parser.IfThenElseStatementContext;
 import grammar.Java8Parser.IfThenStatementContext;
 import grammar.Java8Parser.MethodDeclaratorContext;
 import grammar.Java8Parser.NormalClassDeclarationContext;
+import grammar.Java8Parser.StatementContext;
 import grammar.Java8Parser.StatementWithoutTrailingSubstatementContext;
 import grammar.Java8Parser.VariableDeclaratorIdContext;
+import grammar.Java8Parser.WhileStatementContext;
 import model.Errores;
 import model.GenErrores;
 import model.TipoErrores;
@@ -48,16 +51,20 @@ public class App {
 		}
 	
 	public void start(){
-		//window = new MainWindow();
+		window = new MainWindow();
 		statement = new Statement();
 		nameChk = new NameCheck();
 		ident = new Ident();
 		generador = new GenErrores();
-		analizar("C:/Users/David/Desktop/hola.java");
+
 	}
 	
 	public void chkIdent(List<Token> tokens, int identLevel){
 		ident.identCheck(tokens, identLevel);
+	}
+	
+	public void checkSpaces(List<Token> tok, StatementContext ctx) {
+		ident.checkSpaces(tok,ctx);
 	}
 	
 	public void checkClassName(NormalClassDeclarationContext ctx) {
@@ -83,7 +90,18 @@ public class App {
 	
 	public void checkIfElse(IfThenElseStatementContext ctx) {
 		statement.checkIfElse(ctx);
-		
+	}
+	
+	public void checkWhile(WhileStatementContext ctx) {
+		statement.checkWhile(ctx);
+	}
+	
+	public void checkFor(ForStatementContext ctx) {
+		statement.checkFor(ctx);
+	}
+
+	public void setTitle(String text) {
+		window.setContentTitle(text);
 	}
 	
 	public void analizar(String texto){
@@ -111,10 +129,15 @@ public class App {
 			e.printStackTrace();
 		
 		}
+		generador.generarErrores(errores, texto);
 	}
 
 	public void setError(int linea, String cadena, TipoErrores tipo) {
 		errores.add(new Errores(linea, cadena, tipo));
+	}
+	
+	public void listaErrores(List<String> lst) {
+		window.listaErrores(lst);
 	}
 	
 	private List<Errores> errores = new ArrayList<Errores>();
@@ -124,8 +147,5 @@ public class App {
 	private Ident ident;
 	private MainWindow window;
 	private static App instance = null;
-	
-	
-	
-	
-}
+		
+	}
