@@ -8,6 +8,7 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import controller.App;
@@ -226,12 +227,10 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { 
+		App.getInstance().checkStatementLine(ctx);
+	}
+
 	@Override public void exitStatementWithoutTrailingSubstatement(@NotNull Java8Parser.StatementWithoutTrailingSubstatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1212,8 +1211,8 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) {
-		App.getInstance().checkStatementIf(ctx);
+	@Override public void enterIfThenStatement(@NotNull Java8Parser.IfThenStatementContext ctx) { 
+		App.getInstance().checkIfThen(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -1298,12 +1297,15 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+	@Override public void enterStatement(@NotNull Java8Parser.StatementContext ctx) {
+		String cad = ctx.getParent().getClass().getSimpleName();
+		if(cad.contains("IfThen") || cad.contains("While") || cad.contains("For")){
+			int a = ctx.getStart().getTokenIndex();
+			List<Token> tok = tokens.getHiddenTokensToLeft(a);
+			App.getInstance().checkSpaces(tok,ctx);
+		}
+	}
+	
 	@Override public void exitStatement(@NotNull Java8Parser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1418,8 +1420,8 @@ public class Listener extends Java8BaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhileStatement(@NotNull Java8Parser.WhileStatementContext ctx) {
-		App.getInstance().checkStatementWhile(ctx);
+	@Override public void enterWhileStatement(@NotNull Java8Parser.WhileStatementContext ctx) { 
+		App.getInstance().checkWhile(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -2051,7 +2053,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterForStatement(@NotNull Java8Parser.ForStatementContext ctx) { 
-		App.getInstance().checkStatementFor(ctx);
+		App.getInstance().checkFor(ctx);
 	}
 	/**
 	 * {@inheritDoc}
@@ -2161,7 +2163,7 @@ public class Listener extends Java8BaseListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterIfThenElseStatement(@NotNull Java8Parser.IfThenElseStatementContext ctx) { 
-		App.getInstance().checkStatementIfElse(ctx);
+		App.getInstance().checkIfElse(ctx);
 	}
 	/**
 	 * {@inheritDoc}
