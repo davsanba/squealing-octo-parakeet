@@ -1,0 +1,193 @@
+GenErrores.java
++	Error en la linea: 21, en la cadena: 	, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 23, en la cadena: try{List<String>lst=metodo(lista);App.getInstance().listaErrores(lst);Stringaux[]=nombre(ruta);Stringnombre=aux[0];ruta=aux[1];PrintWriterwriter=newPrintWriter(ruta,"UTF-8");writer.println(nombre);for(Stringstr:lst){writer.println("+	"+str);}writer.close();}catch(Exceptione){e.printStackTrace();}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 25, en la cadena: App.getInstance().listaErrores(lst);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 28, en la cadena: ruta=aux[1];, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 30, en la cadena: writer.println(nombre);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 31, en la cadena: {writer.println("+	"+str);}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 31, en la cadena: {writer.println("+	"+str);}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 32, en la cadena: writer.println("+	"+str);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 34, en la cadena: writer.close();, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 36, en la cadena: e.printStackTrace();, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 39, en la cadena: 	, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 42, en la cadena: {inta=error.linea;Stringb=error.cadena;TipoErroresc=error.tipo;StringBuildererr=newStringBuilder();err.append("Error en la linea: ");err.append(a);err.append(", en la cadena: ");err.append(b);switch(c){caseESPACIOS:err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");errorList.add(newStringBuilder(err).toString());break;caseIDENTACION:err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");errorList.add(newStringBuilder(err).toString());break;caseNOMBRECLASE:err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREMETODO:err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREVARIABLE:err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseVARIOSSTATEMENTSENLINEA:err.append(", Se recomienda tener una sola declaracion por linea");errorList.add(newStringBuilder(err).toString());break;caseESPACIOLLAVE:err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");errorList.add(newStringBuilder(err).toString());break;caseIFSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseWHILESINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseFORSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;default:err.append(", Violación de las reglas");errorList.add(newStringBuilder(err).toString());break;}}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 49, en la cadena: err.append("Error en la linea: ");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 50, en la cadena: err.append(a);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 51, en la cadena: err.append(", en la cadena: ");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 52, en la cadena: err.append(b);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 54, en la cadena: switch(c){caseESPACIOS:err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");errorList.add(newStringBuilder(err).toString());break;caseIDENTACION:err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");errorList.add(newStringBuilder(err).toString());break;caseNOMBRECLASE:err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREMETODO:err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREVARIABLE:err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseVARIOSSTATEMENTSENLINEA:err.append(", Se recomienda tener una sola declaracion por linea");errorList.add(newStringBuilder(err).toString());break;caseESPACIOLLAVE:err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");errorList.add(newStringBuilder(err).toString());break;caseIFSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseWHILESINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseFORSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;default:err.append(", Violación de las reglas");errorList.add(newStringBuilder(err).toString());break;}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 56, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 56, en la cadena: err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 57, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 57, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 58, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 58, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 60, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 60, en la cadena: err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 61, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 61, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 62, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 62, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 64, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 64, en la cadena: err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 65, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 65, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 66, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 66, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 68, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 68, en la cadena: err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 69, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 69, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 70, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 70, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 72, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 72, en la cadena: err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 73, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 73, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 74, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 74, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 77, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 77, en la cadena: err.append(", Se recomienda tener una sola declaracion por linea");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 78, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 78, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 79, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 79, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 82, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 82, en la cadena: err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 84, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 84, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 85, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 85, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 87, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 87, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 89, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 89, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 90, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 90, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 92, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 92, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 94, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 94, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 95, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 95, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 97, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 97, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 99, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 99, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 100, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 100, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 102, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 102, en la cadena: err.append(", Violación de las reglas");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 103, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 103, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 104, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 104, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 108, en la cadena: returnerrorList;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 116, en la cadena: ret[0]=nombre;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 117, en la cadena: aux[(aux.length-1)]="";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 118, en la cadena: {if(a!=""){rt+=a;rt+="\\\\";}}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 118, en la cadena: {if(a!=""){rt+=a;rt+="\\\\";}}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 119, en la cadena: {rt+=a;rt+="\\\\";}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 119, en la cadena: {rt+=a;rt+="\\\\";}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 120, en la cadena: rt+=a;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 121, en la cadena: rt+="\\\\";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 125, en la cadena: rt+=aux2[0];, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 126, en la cadena: rt+=".txt";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 127, en la cadena: ret[1]=rt;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 128, en la cadena: returnret;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 21, en la cadena: 	, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 23, en la cadena: try{List<String>lst=metodo(lista);App.getInstance().listaErrores(lst);Stringaux[]=nombre(ruta);Stringnombre=aux[0];ruta=aux[1];PrintWriterwriter=newPrintWriter(ruta,"UTF-8");writer.println(nombre);for(Stringstr:lst){writer.println("+	"+str);}writer.close();}catch(Exceptione){e.printStackTrace();}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 25, en la cadena: App.getInstance().listaErrores(lst);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 28, en la cadena: ruta=aux[1];, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 30, en la cadena: writer.println(nombre);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 31, en la cadena: {writer.println("+	"+str);}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 31, en la cadena: {writer.println("+	"+str);}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 32, en la cadena: writer.println("+	"+str);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 34, en la cadena: writer.close();, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 36, en la cadena: e.printStackTrace();, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 39, en la cadena: 	, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 42, en la cadena: {inta=error.linea;Stringb=error.cadena;TipoErroresc=error.tipo;StringBuildererr=newStringBuilder();err.append("Error en la linea: ");err.append(a);err.append(", en la cadena: ");err.append(b);switch(c){caseESPACIOS:err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");errorList.add(newStringBuilder(err).toString());break;caseIDENTACION:err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");errorList.add(newStringBuilder(err).toString());break;caseNOMBRECLASE:err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREMETODO:err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREVARIABLE:err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseVARIOSSTATEMENTSENLINEA:err.append(", Se recomienda tener una sola declaracion por linea");errorList.add(newStringBuilder(err).toString());break;caseESPACIOLLAVE:err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");errorList.add(newStringBuilder(err).toString());break;caseIFSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseWHILESINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseFORSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;default:err.append(", Violación de las reglas");errorList.add(newStringBuilder(err).toString());break;}}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 49, en la cadena: err.append("Error en la linea: ");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 50, en la cadena: err.append(a);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 51, en la cadena: err.append(", en la cadena: ");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 52, en la cadena: err.append(b);, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 54, en la cadena: switch(c){caseESPACIOS:err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");errorList.add(newStringBuilder(err).toString());break;caseIDENTACION:err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");errorList.add(newStringBuilder(err).toString());break;caseNOMBRECLASE:err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREMETODO:err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseNOMBREVARIABLE:err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");errorList.add(newStringBuilder(err).toString());break;caseVARIOSSTATEMENTSENLINEA:err.append(", Se recomienda tener una sola declaracion por linea");errorList.add(newStringBuilder(err).toString());break;caseESPACIOLLAVE:err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");errorList.add(newStringBuilder(err).toString());break;caseIFSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseWHILESINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;caseFORSINLLAVE:err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");errorList.add(newStringBuilder(err).toString());break;default:err.append(", Violación de las reglas");errorList.add(newStringBuilder(err).toString());break;}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 56, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 56, en la cadena: err.append(", Violación de la unidad minima de identación, se recomienda tener 4 espacios como la unidad minima de identacion en bloques.");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 57, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 57, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 58, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 58, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 60, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 60, en la cadena: err.append(", Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 61, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 61, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 62, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 62, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 64, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 64, en la cadena: err.append(", Violación de regla nombre, se recomienda tener el nombre en UpperCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 65, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 65, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 66, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 66, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 68, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 68, en la cadena: err.append(", Violación de regla nombre, se recomienda tener el nombre en lowerCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 69, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 69, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 70, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 70, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 72, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 72, en la cadena: err.append(", Violacion de regla nombre, se recomienda tener el nombre en lowerCamelCase");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 73, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 73, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 74, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 74, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 77, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 77, en la cadena: err.append(", Se recomienda tener una sola declaracion por linea");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 78, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 78, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 79, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 79, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 82, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 82, en la cadena: err.append(", Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 84, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 84, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 85, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 85, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 87, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 87, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 89, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 89, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 90, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 90, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 92, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 92, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 94, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 94, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 95, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 95, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 97, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 97, en la cadena: err.append(", Violación de regla de corchetes, se recomienda tener los corchetes { } asi sea una sentencia vacia");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 99, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 99, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 100, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 100, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 102, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 102, en la cadena: err.append(", Violación de las reglas");, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 103, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 103, en la cadena: errorList.add(newStringBuilder(err).toString());, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 104, en la cadena: 				, Violación de la identación, se recomienda tener la tabulacion hacia la derecha despues de iniciar el bloque
++	Error en la linea: 104, en la cadena: break;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 108, en la cadena: returnerrorList;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 116, en la cadena: ret[0]=nombre;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 117, en la cadena: aux[(aux.length-1)]="";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 118, en la cadena: {if(a!=""){rt+=a;rt+="\\\\";}}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 118, en la cadena: {if(a!=""){rt+=a;rt+="\\\\";}}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 119, en la cadena: {rt+=a;rt+="\\\\";}, Violación de espacio en sentencia if, se recomienda tener un espacio antes de la llave {
++	Error en la linea: 119, en la cadena: {rt+=a;rt+="\\\\";}, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 120, en la cadena: rt+=a;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 121, en la cadena: rt+="\\\\";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 125, en la cadena: rt+=aux2[0];, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 126, en la cadena: rt+=".txt";, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 127, en la cadena: ret[1]=rt;, Se recomienda tener una sola declaracion por linea
++	Error en la linea: 128, en la cadena: returnret;, Se recomienda tener una sola declaracion por linea
